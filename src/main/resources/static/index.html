@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" ng-app="myApp">
 <head>
 <meta charset="ISO-8859-1"/>
-<title>Insert title here</title>
+      <title>Angular JS</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>    
+      <script src="js/app.js"></script>
+	  <script src="js/value.js"></script>
+	  <script src="js/controller.js"></script>
+	  <script src="js/service.js"></script>
+	  <script src="js/factory.js"></script>
 </head>
-<body>
-Hi HTML !!
-</body>
+   
+   <body ng-controller="topicCtrl as t">
+
+	<h1>{{title}}</h1>
+	<h3>Add a Topic:</h3>
+	<input type="text" ng-model="t.newTopic.id">
+	<span><input type="text" ng-model="t.newTopic.name"></span>
+	<span><input type="text" ng-model="t.newTopic.description"></span>
+	<span><button ng-click="t.addTopic()">Add</button></span>
+	
+	<h3>Available Topics:</h3>
+	<p>(Click on a topic to update or delete)</p>
+	
+
+<table border="1" width="100%">
+  <tr>
+    <th>{{t.head1}}</th>
+    <th>{{t.head2}}</th>
+	<th>{{t.head3}}</th>
+  </tr>
+  <tr ng-repeat="x in t.topics " ng-click="t.selectedIndex($index)">
+    <td>{{x.id}}</td>
+    <td>{{x.name}}</td>
+	<td>{{x.description}}</td>
+  </tr>
+</table>
+   
+   
+   <h3>Update Selected Topic:</h3>
+   <input type="text" ng-disabled="t.selectedTopic.id" ng-model="t.selectedTopic.id">
+	<span><input type="text" ng-model="t.selectedTopic.name"></span>
+	<span><input type="text" ng-model="t.selectedTopic.description"></span>
+	<span><button ng-disabled="!t.selectedTopic" ng-click="t.updateTopic()">Update</button></span>
+	<span><button ng-disabled="!t.selectedTopic" ng-click="t.deleteTopic()">Delete</button></span>
+   
+   </body>
+
+   
+   
+     <!-- <tr ng-repeat="x in t.topics | orderBy : 'id' " ng-click="t.selectedIndex(t.topics.indexOf(x))">
+    <td>Id-{{x.id}} : Index-{{t.topics.indexOf(x)}}</td> -->
 </html>

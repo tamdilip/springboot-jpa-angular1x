@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Sat Feb 18 18:25:37 IST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-015a-514a-bd5a-000003e5dea0 
-on database directory memory:D:\Ec\Workspace-Ext\course-mockup\testdb with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Sat Mar 11 17:02:00 IST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-015a-bd23-bca6-000006e9cda8 
+on database directory memory:C:\Users\dsomasundar2\git\coursemock\testdb with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
 Loaded from file:/C:/Users/dsomasundar2/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_102-b14
-user.dir=D:\Ec\Workspace-Ext\course-mockup
+user.dir=C:\Users\dsomasundar2\git\coursemock
 os.name=Windows 8.1
 os.arch=amd64
 os.version=6.3
