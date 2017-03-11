@@ -1,3 +1,8 @@
 language: java
 jdk:
-  - oraclejdk8
+ - oraclejdk8
+deploy:
+ provider: heroku
+ api-key: 
+  secure: 5ff695f7-8ca1-4544-9f2f-dc650642d78c
+ app: coursemock
