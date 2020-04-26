@@ -3,19 +3,16 @@
 
 <head>
 	<meta charset="ISO-8859-1" />
-	<title>Springboot|Angular|JPA - Webapp</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/value.js"></script>
-	<script src="js/controller.js"></script>
-	<script src="js/service.js"></script>
-	<script src="js/factory.js"></script>
+	<title>Springboot | Angular | JPA - Webapp</title>
+	<link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/github-ribbon.css">
+	<script src="vendor/js/angular.min.js"></script>
 </head>
 
 <body ng-controller="topicCtrl as t">
 
-	<a href="https://github.com/tamdilip/coursemock.git" class="github-corner" aria-label="View source on Github"><svg
-			width="80" height="80" viewBox="0 0 250 250"
+	<a href="https://github.com/tamdilip/coursemock.git" class="github-corner" aria-label="View source on Github">
+		<svg width="80" height="80" viewBox="0 0 250 250"
 			style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
 			<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
 			<path
@@ -24,79 +21,74 @@
 			<path
 				d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
 				fill="currentColor" class="octo-body"></path>
-		</svg></a>
-	<style>
-		.github-corner:hover .octo-arm {
-			animation: octocat-wave 560ms ease-in-out
-		}
+		</svg>
+	</a>
 
-		@keyframes octocat-wave {
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1>{{title}}</h1>
+				<h3>Add a Topic:</h3>
+				<form class="form-inline">
+					<div class="form-group">
+						<input type="text" ng-model="t.newTopic.id" class="form-control" placeholder="Id">
+					</div>
+					<div class="form-group">
+						<input type="text" ng-model="t.newTopic.name" class="form-control" placeholder="Name">
+					</div>
+					<div class="form-group">
+						<input type="text" ng-model="t.newTopic.description" class="form-control"
+							placeholder="Description">
+					</div>
+					<button ng-click="t.addTopic()" class="btn btn-success">Add</button>
+				</form>
 
-			0%,
-			100% {
-				transform: rotate(0)
-			}
+				<h3>Available Topics:</h3>
+				<p>(Click on a topic to update or delete)</p>
 
-			20%,
-			60% {
-				transform: rotate(-25deg)
-			}
-
-			40%,
-			80% {
-				transform: rotate(10deg)
-			}
-		}
-
-		@media (max-width:500px) {
-			.github-corner:hover .octo-arm {
-				animation: none
-			}
-
-			.github-corner .octo-arm {
-				animation: octocat-wave 560ms ease-in-out
-			}
-		}
-	</style>
-
-
-	<span><h1>{{title}}</h1></span>
-	<h3>Add a Topic:</h3>
-	<input type="text" ng-model="t.newTopic.id">
-	<span><input type="text" ng-model="t.newTopic.name"></span>
-	<span><input type="text" ng-model="t.newTopic.description"></span>
-	<span><button ng-click="t.addTopic()">Add</button></span>
-
-	<h3>Available Topics:</h3>
-	<p>(Click on a topic to update or delete)</p>
+				<table class="table">
+					<tr>
+						<th>{{t.head1}}</th>
+						<th>{{t.head2}}</th>
+						<th>{{t.head3}}</th>
+					</tr>
+					<tr ng-repeat="x in t.topics  | orderBy : 'id' " ng-click="t.selectedIndex(t.topics.indexOf(x))">
+						<td>{{x.id}}</td>
+						<td>{{x.name}}</td>
+						<td>{{x.description}}</td>
+					</tr>
+				</table>
 
 
-	<table border="1" width="100%">
-		<tr>
-			<th>{{t.head1}}</th>
-			<th>{{t.head2}}</th>
-			<th>{{t.head3}}</th>
-		</tr>
-		<tr ng-repeat="x in t.topics " ng-click="t.selectedIndex($index)">
-			<td>{{x.id}}</td>
-			<td>{{x.name}}</td>
-			<td>{{x.description}}</td>
-		</tr>
-	</table>
+				<h3>Update Selected Topic:</h3>
+				<form class="form-inline">
+					<div class="form-group">
+						<input type="text" ng-disabled="t.selectedTopic.id" ng-model="t.selectedTopic.id"
+							class="form-control" placeholder="Id">
+					</div>
+					<div class="form-group">
+						<input type="text" ng-model="t.selectedTopic.name" class="form-control" placeholder="Name">
+					</div>
+					<div class="form-group">
+						<input type="text" ng-model="t.selectedTopic.description" class="form-control"
+							placeholder="Description">
+					</div>
+					<div class="form-group">
+						<button ng-disabled="!t.selectedTopic" ng-click="t.updateTopic()"
+							class="btn btn-warning">Update</button>
+						<button ng-disabled="!t.selectedTopic" ng-click="t.deleteTopic()"
+							class="btn btn-danger">Delete</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-
-	<h3>Update Selected Topic:</h3>
-	<input type="text" ng-disabled="t.selectedTopic.id" ng-model="t.selectedTopic.id">
-	<span><input type="text" ng-model="t.selectedTopic.name"></span>
-	<span><input type="text" ng-model="t.selectedTopic.description"></span>
-	<span><button ng-disabled="!t.selectedTopic" ng-click="t.updateTopic()">Update</button></span>
-	<span><button ng-disabled="!t.selectedTopic" ng-click="t.deleteTopic()">Delete</button></span>
-
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/value.js"></script>
+	<script src="assets/js/controller.js"></script>
+	<script src="assets/js/service.js"></script>
+	<script src="assets/js/factory.js"></script>
 </body>
-
-
-
-<!-- <tr ng-repeat="x in t.topics | orderBy : 'id' " ng-click="t.selectedIndex(t.topics.indexOf(x))">
-    <td>Id-{{x.id}} : Index-{{t.topics.indexOf(x)}}</td> -->
 
 </html>
