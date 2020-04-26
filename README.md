@@ -14,7 +14,7 @@ Baby steps as a developer at the start of career, building a simple Spring boot 
 #### Bookmarks
 * [Jack DB](https://app.jackdb.com/editor/EQDZGQfHi0wYZ6pGVQBCkYB1/#)
 * [Heroku Logs](https://dashboard.heroku.com/apps/springbootangular/logs)
-* [Heroku Deployement](https://exampledriven.wordpress.com/2016/11/04/spring-boot-heroku-example/)
+* [Heroku Deployment](https://exampledriven.wordpress.com/2016/11/04/spring-boot-heroku-example/)
 * [Heroku Logs](https://dashboard.heroku.com/apps/springbootangular/logs)
 
 **Happy coding :) !!**
