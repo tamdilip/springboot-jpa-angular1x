@@ -1,6 +1,6 @@
 # springboot-jpa-angular1x
 
-[![Live demo](https://img.shields.io/badge/Heroku-Live%20demo-violet?style=flat-square&logo=heroku&logoColor=violet)](https://springbootangular.herokuapp.com) [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/tamdilip/coursemock) 
+[![Live demo](https://img.shields.io/badge/Render-Live%20demo-violet?style=flat-square&logo=render&logoColor=violet)](https://springbootangular.onrender.com) [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/tamdilip/springboot-jpa-angular1x) 
 
 Baby steps as a developer at the start of career, building a simple Spring boot REST application to create single page application (SPA) and deployed in Heroku platform.
 
